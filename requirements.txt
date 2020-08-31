@@ -1,0 +1,13 @@
+chumpy==0.68
+h5py==2.9.0
+imageio==2.5.0
+Keras==2.2.4
+matplotlib==2.2.4
+numpy==1.16.4
+opencv-contrib-python==4.1.0.25
+Pillow==6.1.0
+scikit-image==0.14.3
+scipy==1.2.2
+tensorflow-gpu==1.13.1
+tensorflow-graphics-gpu==1.0.0
+tqdm==4.33.0
