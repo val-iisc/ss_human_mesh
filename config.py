@@ -23,7 +23,7 @@ EXP_NAME = 'release'
 ### INFERENCE
 overlay_clr = [0.5, 0.5, 1.0]	##Purple
 TF_version = 1.13
-restore_str = "./weights/weak_sup"
+restore_str = "./weights/weak_sup_train"
 
 ### DATALOADER
 TRANS_MAX_JITTER = 20 #Pix space 

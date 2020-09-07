@@ -14,7 +14,7 @@ ECCV 2020
 Clone the repo or download it as a zip from the GitHub GUI.
 
 ```
-git clone https://github.com/rakeshramesha/SS_Human_Mesh.git
+git clone https://github.com/val-iisc/ss_human_mesh.git
 ```
 
 We have tested the full pipeline on linux with `python2`, hence we suggest you create a `python2` virtual environment and install the relevant pip packages as follows: 
@@ -38,14 +38,14 @@ Download the neutral SMPL model from [here](http://smplify.is.tue.mpg.de/) and p
 	cp <path_to_smplify>/code/models/basicModel_neutral_lbs_10_207_0_v1.0.0.pkl assets/neutral_smpl.pkl
 	```
 
-Download pre-trained model weights from [here](https://drive.google.com/drive/folders/1Wef_UA1XV5rgSDUIJn7nQT-6-lTvrk7V) and place them in the `weights` folder. Check if the weights path matches the path in `config.py`.
+Download pre-trained model weights from [here](https://drive.google.com/drive/folders/1Wef_UA1XV5rgSDUIJn7nQT-6-lTvrk7V), extract and place them in the `weights` folder. Check if the weights path matches the path in `config.py`.
 
 ```
 tar -xvf <path_to_downloaded_file> -C ./weights/
 ```
 
 ## Run demo code
-Images should be tightly cropped, where the height of the person is roughly 180px and the person is approximately at the center. Also single unoccluded person with full body visible (not truncated) yields best overlays.
+Images should be properly cropped, where the person bounding box is image-centered & scaled to get a bbox size of roughly 180px-200px (along the longer bbox dimension). Also single unoccluded person with full body visible (not truncated) yields best overlays and coloured mesh.
 
 There are 4 ways to run our inference code:
 1. Bounding box as a json file along with image, Bbox would be used internally to obtain a proper crop of the image.  
@@ -60,8 +60,7 @@ There are 4 ways to run our inference code:
 	```
 	python demo.py --img_path <path_to_img>
 	```
-4. Direct webcam inference, person is assumed to be at the center of the feed. All renderings are performed in real-time, including colored mesh and mesh overlays.     
-	Note: Although we provide video inference code, we highly recommend use of a person detector in order to feed proper cropped images to the network. Also note that our model is not trained on video data, hence it might exhibit flicking artifacts. 
+4. Direct webcam inference, person is assumed to be at the center of the feed. All renderings are performed in real-time, including colored mesh and mesh overlays. Note: Although we provide video inference code, we highly recommend use of a person detector in order to feed proper cropped images to the network. Also note that our model is not trained on video data, hence it might exhibit flicking artifacts. 
 	```
 	python demo.py --webcam <cam_id>
 	```
